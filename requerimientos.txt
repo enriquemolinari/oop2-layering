@@ -1,0 +1,13 @@
+- La estacion de servicio debe registrar las ventas de cada carga.
+- Los tipos de combustible son super o resuper.
+- Como venta se debe registrar su fecha, tipo de combustible, y los litros.
+- Los días domingos la nafta resuper tiene un descuento del 10%.
+- Los días sabados la nafta super tiene un descuento del 3%.
+
+
+Importante, observar:
+- Desde la UI, solo estoy acompado al paquete modelo.api.
+- modelo.api expone interfaces, con parámetros con datos primitivos (nunca objetos del modelo de dominio). Si requiriera de muchos parámetros puedo utilizar Records para agruparlos.
+-- Esto vale tanto para los parametros de entrada como para los de salida. 
+- En la UI, no realizo ningun tipo de lógica de negocios. 
+- Las classes del modelo son todas package-private (privadas a la capa de negocio/modelo de dominio).

@@ -1,4 +1,4 @@
-package ar.unrn.db;
+package ar.unrn.db.api;
 
 public interface ProductoDatabase {
  

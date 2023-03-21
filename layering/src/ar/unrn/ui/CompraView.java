@@ -5,6 +5,8 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -22,37 +24,42 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class CompraView extends WindowAdapter {
-  
-  // Perform some initialization.
+
+  private JRadioButton rbInfinia;
+  private JRadioButton rbSuper;
+  private JTextField litros;
+
   public CompraView() {
 
   }
 
   protected JComponent createOptionControls() {
-    JLabel label1 =
-        new JLabel("Indique lo que desea cargar:");
+    JLabel label1 = new JLabel("Indique lo que desea cargar:");
     ButtonGroup bGroup = new ButtonGroup();
 
-    var rbInfinia = new JRadioButton();
+    this.rbInfinia = new JRadioButton();
     rbInfinia.setText("Infinia");
     rbInfinia.setSelected(true);
     bGroup.add(rbInfinia);
 
-    var rbSuper = new JRadioButton();
+    this.rbSuper = new JRadioButton();
     rbSuper.setText("Super");
     bGroup.add(rbSuper);
 
-    var litrosLabel = new JLabel("Litros");
-    var litros = new JTextField();
-    //bGroup.add(litros);
-    
+    this.litros = new JTextField();
+
     Box box = Box.createVerticalBox();
     box.add(label1);
     box.add(Box.createVerticalStrut(5)); // spacer
     box.add(rbInfinia);
     box.add(rbSuper);
-    box.add(litrosLabel);
-    box.add(litros);
+
+    Box box2 = Box.createHorizontalBox();
+    JLabel label = new JLabel("Litros");
+    box2.add(label);
+    box2.add(Box.createHorizontalStrut(5));
+    box2.add(litros);
+    box.add(box2);
 
     box.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
@@ -61,23 +68,29 @@ public class CompraView extends WindowAdapter {
 
   protected JComponent createButtonPane() {
     JButton button = new JButton("Confirmar compra");
+    var self = this;
     button.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        System.out.println("boton apretado...");
-        
+        System.out.println("super: " + self.rbSuper.isSelected());
+        System.out.println("infinia: " + self.rbInfinia.isSelected());
+        System.out.println(self.litros.getText());
+
       }
     });
-    JPanel pane = new JPanel(); 
+
+
+    JPanel pane = new JPanel();
     pane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     pane.add(button);
 
     return pane;
   }
 
-  private static void createAndShowGUI() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-      UIManager
-          .setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+  private static void createAndShowGUI()
+      throws ClassNotFoundException, InstantiationException,
+      IllegalAccessException, UnsupportedLookAndFeelException {
+    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 
     JFrame.setDefaultLookAndFeelDecorated(true);
     JDialog.setDefaultLookAndFeelDecorated(true);
@@ -89,6 +102,7 @@ public class CompraView extends WindowAdapter {
 
     Container contentPane = frame.getContentPane();
     contentPane.add(demo.createOptionControls(), BorderLayout.CENTER);
+
     contentPane.add(demo.createButtonPane(), BorderLayout.PAGE_END);
 
     frame.pack();
