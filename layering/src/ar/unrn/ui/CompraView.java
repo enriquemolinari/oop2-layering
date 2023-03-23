@@ -5,9 +5,6 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -17,20 +14,26 @@ import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import ar.unrn.domain.api.DomainException;
+import ar.unrn.domain.api.EstacionDeServicio;
+import ar.unrn.domain.api.TipoDeCombustible;
 
-public class CompraView extends WindowAdapter {
+public class CompraView {
 
   private JRadioButton rbInfinia;
   private JRadioButton rbSuper;
   private JTextField litros;
+  private EstacionDeServicio estacion;
+  private JFrame frame;
 
-  public CompraView() {
-
+  public CompraView(EstacionDeServicio estacion) {
+    this.estacion = estacion;
   }
 
   protected JComponent createOptionControls() {
@@ -72,13 +75,14 @@ public class CompraView extends WindowAdapter {
     button.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        System.out.println("super: " + self.rbSuper.isSelected());
-        System.out.println("infinia: " + self.rbInfinia.isSelected());
-        System.out.println(self.litros.getText());
-
+        try {
+          estacion.nuevaVenta(TipoDeCombustible.RESUPER,
+              Float.parseFloat(self.litros.getText()));
+        } catch (DomainException ex) {
+          JOptionPane.showMessageDialog(frame, ex.getMessage());
+        }
       }
     });
-
 
     JPanel pane = new JPanel();
     pane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -87,7 +91,7 @@ public class CompraView extends WindowAdapter {
     return pane;
   }
 
-  private static void createAndShowGUI()
+  public void createAndShowUI()
       throws ClassNotFoundException, InstantiationException,
       IllegalAccessException, UnsupportedLookAndFeelException {
     UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
@@ -95,38 +99,23 @@ public class CompraView extends WindowAdapter {
     JFrame.setDefaultLookAndFeelDecorated(true);
     JDialog.setDefaultLookAndFeelDecorated(true);
 
-    JFrame frame = new JFrame("Compras");
+    frame = new JFrame("Compras");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    CompraView demo = new CompraView();
-
     Container contentPane = frame.getContentPane();
-    contentPane.add(demo.createOptionControls(), BorderLayout.CENTER);
+    contentPane.add(this.createOptionControls(), BorderLayout.CENTER);
 
-    contentPane.add(demo.createButtonPane(), BorderLayout.PAGE_END);
+    contentPane.add(this.createButtonPane(), BorderLayout.PAGE_END);
 
     frame.pack();
     frame.setLocationRelativeTo(null); // center it
     frame.setVisible(true);
   }
 
-  public static void main(String[] args) {
-    javax.swing.SwingUtilities.invokeLater(new Runnable() {
-      public void run() {
-        try {
-          createAndShowGUI();
-        } catch (ClassNotFoundException | InstantiationException
-            | IllegalAccessException | UnsupportedLookAndFeelException e) {
-          throw new RuntimeException(e);
-        }
-      }
-    });
-  }
-
   class MyFrame extends JFrame implements ActionListener {
 
     public MyFrame() {
-      super("Sistema de Compras");
+      super("Estación de Servicio");
       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
       JButton button = new JButton("Cerrar");
