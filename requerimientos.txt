@@ -9,5 +9,5 @@ Importante, observar:
 - Desde la UI, solo estoy acomplado al paquete domain.api. Nunca a clases dentro de domain.
 - domain.api expone interfaces, con parámetros con datos primitivos (nunca objetos del modelo de dominio). Si requiriera de muchos parámetros puedo utilizar Records para agruparlos.
 -- Esto vale tanto para los parametros de entrada como para los de salida. 
-- En la UI, no realizo ningun tipo de lógica de negocios. 
+- En la UI, no realizo ningun tipo de lógica de negocios. Por acción, llamo a un solo método de domain.api. 
 - Las classes del modelo de dominio son todas package-private (privadas a la capa de negocio/modelo de dominio).
