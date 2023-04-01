@@ -1,8 +1,8 @@
-package layers.main;
+package hex.main;
 
-import layers.db.JdbcVentasDb;
-import layers.domain.DefaultEstacionDeServicio;
-import layers.ui.CompraView;
+import hex.domain.model.DefaultEstacionDeServicio;
+import hex.infrastructure.data.JdbcVentas;
+import hex.infrastructure.ui.CompraView;
 
 public class Main {
 
@@ -11,12 +11,12 @@ public class Main {
       public void run() {
         try {
           new CompraView(new DefaultEstacionDeServicio(
-              new JdbcVentasDb("jdbc:hsqldb:mem;create=true")))
-                  .createAndShowUI();
+              new JdbcVentas("jdbc:hsqldb:mem;create=true"))).createAndShowUI();
         } catch (Exception e) {
           throw new RuntimeException(e);
         }
       }
     });
   }
+
 }

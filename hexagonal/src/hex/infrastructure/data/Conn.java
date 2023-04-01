@@ -1,4 +1,4 @@
-package hex.infrastructura.data;
+package hex.infrastructure.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

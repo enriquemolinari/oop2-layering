@@ -1,4 +1,4 @@
-package hex.infrastructura.ui;
+package hex.infrastructure.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

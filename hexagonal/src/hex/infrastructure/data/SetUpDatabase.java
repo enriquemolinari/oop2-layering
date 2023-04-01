@@ -1,4 +1,4 @@
-package hex.infrastructura.data;
+package hex.infrastructure.data;
 
 import hex.domain.portsout.VentasException;
 
