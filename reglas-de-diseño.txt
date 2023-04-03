@@ -1,14 +1,7 @@
-- La estacion de servicio debe registrar las ventas de cada carga.
-- Los tipos de combustible son super o resuper.
-- Como venta se debe registrar su fecha, tipo de combustible, y los litros.
-- Los días domingos la nafta resuper tiene un descuento del 10%.
-- Los días sabados la nafta super tiene un descuento del 3%.
-
-
 Reglas impuestas por la Arquitectura Hexagonal:
 - Desde la UI, solo estoy acomplado al paquete domain.portsin. Nunca a clases dentro de domain ni domain.portsout.
 - domain.portsin y domain.portsout expone interfaces, con parámetros con datos primitivos (nunca objetos del modelo de dominio). Si requiriera de muchos parámetros puedo utilizar Records para agruparlos.
 - En la UI, no realizo ningun tipo de lógica de negocios. Por cada acción (boton en la UI o similar), llamo a un solo método de un interfaz de domain.portsin. 
 - Las classes del modelo de dominio son todas package-private (privadas a la capa de negocio/modelo de dominio).
-- Los sub paquetes de infrastructure deben estar acoplados a las interefaces en domain.portsin o domain.portsout, nunca a algun clase de domain.
+- Los sub paquetes de infrastructure deben estar acoplados a las interfaces en domain.portsin o domain.portsout, nunca a algun clase de domain.
 
