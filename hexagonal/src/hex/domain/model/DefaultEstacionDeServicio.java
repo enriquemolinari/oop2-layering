@@ -22,13 +22,14 @@ public class DefaultEstacionDeServicio implements EstacionDeServicio {
   @Override
   public void nuevaVenta(TipoDeCombustible tipoConbustible,
       float litrosCargados) {
-    var combustibleCargado = nafta.get(tipoConbustible.toString());
 
-    if (combustibleCargado == null) {
+    if (tipoConbustible == null) {
       throw new DomainException("Debe seleccionar un tipo de Nafta");
     }
 
-    if (litrosCargados < 0) {
+    var combustibleCargado = nafta.get(tipoConbustible.toString());
+
+    if (litrosCargados <= 0) {
       throw new DomainException("Ingrese en litros un valor positivo");
     }
 

@@ -32,6 +32,7 @@ public class CompraView {
   private JTextField litros;
   private EstacionDeServicio estacion;
   private JFrame frame;
+  private ButtonGroup bGroup;
 
   public CompraView(EstacionDeServicio estacion) {
     this.estacion = estacion;
@@ -39,11 +40,10 @@ public class CompraView {
 
   protected JComponent createOptionControls() {
     JLabel label1 = new JLabel("Indique lo que desea cargar:");
-    ButtonGroup bGroup = new ButtonGroup();
+    bGroup = new ButtonGroup();
 
     this.rbInfinia = new JRadioButton();
     rbInfinia.setText("Infinia");
-    rbInfinia.setSelected(true);
     bGroup.add(rbInfinia);
 
     this.rbSuper = new JRadioButton();
@@ -51,6 +51,7 @@ public class CompraView {
     bGroup.add(rbSuper);
 
     this.litros = new JTextField();
+    this.litros.setText("0");
 
     Box box = Box.createVerticalBox();
     box.add(label1);
@@ -77,8 +78,12 @@ public class CompraView {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          estacion.nuevaVenta(TipoDeCombustible.RESUPER,
-              Float.parseFloat(self.litros.getText()));
+
+          TipoDeCombustible tipo = self.rbInfinia.isSelected()
+              ? TipoDeCombustible.RESUPER
+              : (self.rbSuper.isSelected() ? TipoDeCombustible.SUPER : null);
+
+          estacion.nuevaVenta(tipo, Float.parseFloat(self.litros.getText()));
         } catch (DomainException ex) {
           JOptionPane.showMessageDialog(frame, ex.getMessage());
         }
