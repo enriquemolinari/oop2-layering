@@ -1,13 +1,13 @@
-package database;
+package model;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface VentasDatabaseService {
+public interface RegistroDeVentas {
     void nuevaVenta(LocalDateTime fechaDeVenta,
                     float montoTotal,
                     float cantidadLitros,
                     String tipo);
 
-    List<VentaData> ventas();
+    List<Venta> ventas();
 }

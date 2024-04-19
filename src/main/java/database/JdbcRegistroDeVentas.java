@@ -1,16 +1,20 @@
 package database;
 
+import model.RegistroDeVentas;
+import model.TipoDeCombustible;
+import model.Venta;
+
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcVentasDatabaseService implements VentasDatabaseService {
+public class JdbcRegistroDeVentas implements RegistroDeVentas {
 
     private Conn conn;
 
-    public JdbcVentasDatabaseService(String conn, String username, String pwd) {
+    public JdbcRegistroDeVentas(String conn, String username, String pwd) {
         this.conn = new Conn(conn, username, pwd);
     }
 
@@ -36,19 +40,20 @@ public class JdbcVentasDatabaseService implements VentasDatabaseService {
     }
 
     @Override
-    public List<VentaData> ventas() {
+    public List<Venta> ventas() {
         final String SQL_TODAS_LAS_VENTAS = "select id_venta, fecha_venta, total, litros_cargados, tipo_combustible " +
                 "from ventas order by fecha_venta desc";
-        var listaVentas = new ArrayList<VentaData>();
+        var listaVentas = new ArrayList<Venta>();
         try (var conexion = this.conn.open();
              var stmt = conexion.createStatement();
              var resultSet = stmt.executeQuery(SQL_TODAS_LAS_VENTAS);) {
             while (resultSet.next()) {
-                listaVentas.add(new VentaData(resultSet.getLong("id_venta"),
+                listaVentas.add(new Venta(resultSet.getLong("id_venta"),
                         resultSet.getTimestamp("fecha_venta").toLocalDateTime(),
+                        TipoDeCombustible.valueOf(resultSet.getString("tipo_combustible").trim()),
                         resultSet.getFloat("total"),
-                        resultSet.getFloat("litros_cargados"),
-                        resultSet.getString("tipo_combustible").trim()));
+                        resultSet.getFloat("litros_cargados")
+                ));
             }
             return listaVentas;
         } catch (SQLException e) {

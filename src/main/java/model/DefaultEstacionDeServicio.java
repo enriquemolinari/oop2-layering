@@ -1,10 +1,6 @@
 package model;
 
-import database.VentaData;
-import database.VentasDatabaseService;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,14 +11,14 @@ public class DefaultEstacionDeServicio implements EstacionDeServicio {
     public static final float PRECIO_X_LITRO_RESUPER = 600f;
     public static final String FALTA_TIPO_NAFTA = "Debe seleccionar un tipo de Nafta";
     private Map<String, Nafta> naftas;
-    private VentasDatabaseService ventasDatabaseService;
+    private RegistroDeVentas registroDeVentas;
 
-    public DefaultEstacionDeServicio(VentasDatabaseService ventasDatabaseService) {
+    public DefaultEstacionDeServicio(RegistroDeVentas registroDeVentas) {
         naftas = Map.of(TipoDeCombustible.SUPER.toString(),
                 new Super(DESCUENTO_SUPER, PRECIOS_X_LITRO_SUPER),
                 TipoDeCombustible.RESUPER.toString(),
                 new ReSuper(DESCUENTO_RESUPER, PRECIO_X_LITRO_RESUPER));
-        this.ventasDatabaseService = ventasDatabaseService;
+        this.registroDeVentas = registroDeVentas;
     }
 
     @Override
@@ -33,7 +29,7 @@ public class DefaultEstacionDeServicio implements EstacionDeServicio {
         }
         var combustibleCargado = naftas.get(tipoConbustible.toString());
         float monto = combustibleCargado.calcularMonto(litrosCargados);
-        this.ventasDatabaseService.nuevaVenta(LocalDateTime.now(),
+        this.registroDeVentas.nuevaVenta(LocalDateTime.now(),
                 monto,
                 litrosCargados,
                 tipoConbustible.toString());
@@ -42,16 +38,6 @@ public class DefaultEstacionDeServicio implements EstacionDeServicio {
 
     @Override
     public List<Venta> listarVentas() {
-        var ventas = new ArrayList<Venta>();
-        List<VentaData> ventasDb = this.ventasDatabaseService.ventas();
-
-        for (VentaData ventaData : ventasDb) {
-            ventas.add(new Venta(ventaData.idVenta(),
-                    ventaData.fechaDeVenta(),
-                    TipoDeCombustible.valueOf(ventaData.tipo()),
-                    ventaData.litrosCargados(),
-                    ventaData.montoTotal()));
-        }
-        return ventas;
+        return this.registroDeVentas.ventas();
     }
 }
