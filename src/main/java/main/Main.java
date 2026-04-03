@@ -7,9 +7,9 @@ import ui.MainView;
 public class Main {
 
     //Conexion para DB cliente / servidor
-    //public static final String CONNSTR = "jdbc:derby://localhost:1527/ventas;create=true";
+    public static final String CONNSTR = "jdbc:derby://localhost:1527/ventas;create=true";
     //Conexion para DB en memoria
-    public static final String CONNSTR = "jdbc:derby:memory:ventas;create=true";
+    //public static final String CONNSTR = "jdbc:derby:memory:ventas;create=true";
     public static final String USERNAME = "app";
     public static final String PWD = "app";
 
