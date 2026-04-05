@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d0889dd-53ca-440b-9245-cf014e89bb1f" name="Changes" comment="upgrade to java 23">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/ListaVentasView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/MainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/TipoDeCombustible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/VentaData.java" afterDir="false" />
+    <list default="true" id="4d0889dd-53ca-440b-9245-cf014e89bb1f" name="Changes" comment="primera version sin estructura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/Conn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/JdbcVentasDatabaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/VentaData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/VentasDatabaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DefaultEstacionDeServicio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/EstacionDeServicio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/FormatterDayTime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Nafta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ReSuper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Super.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/TipoDeCombustible.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Venta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/ListaVentasView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/NuevaVentaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +56,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -147,20 +128,29 @@
       <option name="project" value="LOCAL" />
       <updated>1775221853034</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="primera version sin estructura">
+      <option name="closed" value="true" />
+      <created>1775415712565</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775415712566</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="upgrade to java 23" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade to java 23" />
+    <MESSAGE value="primera version sin estructura" />
+    <option name="LAST_COMMIT_MESSAGE" value="primera version sin estructura" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/main/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

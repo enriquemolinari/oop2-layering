@@ -96,11 +96,6 @@ public class NuevaVentaView {
                         monto = subtotal;
                     }
                     LocalDateTime fechaDeVenta = LocalDateTime.now();
-                    String tipo1 = tipo.toString();
-
-                    if (tipo1.length() > 10) {
-                        throw new RuntimeException("Tipo de combustible no puede superar 10 caracteres");
-                    }
 
                     try (var conexion = DriverManager.getConnection(Main.CONNSTR, Main.USERNAME, Main.PWD);
                          var stmt = conexion.prepareStatement(
@@ -108,7 +103,7 @@ public class NuevaVentaView {
                         stmt.setTimestamp(1, Timestamp.valueOf(fechaDeVenta));
                         stmt.setFloat(2, monto);
                         stmt.setFloat(3, litrosCargados);
-                        stmt.setString(4, tipo1);
+                        stmt.setString(4, tipo.toString());
                         stmt.executeUpdate();
                     } catch (SQLException e1) {
                         throw new RuntimeException(e1);
