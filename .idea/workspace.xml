@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d0889dd-53ca-440b-9245-cf014e89bb1f" name="Changes" comment="primera version sin estructura">
+    <list default="true" id="4d0889dd-53ca-440b-9245-cf014e89bb1f" name="Changes" comment="fix a primera version sin estructura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -136,24 +136,22 @@
       <option name="project" value="LOCAL" />
       <updated>1775415712566</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix a primera version sin estructura">
+      <option name="closed" value="true" />
+      <created>1775416197173</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775416197173</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="upgrade to java 23" />
     <MESSAGE value="primera version sin estructura" />
-    <option name="LAST_COMMIT_MESSAGE" value="primera version sin estructura" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/main/NuevaVentaView.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix a primera version sin estructura" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix a primera version sin estructura" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
