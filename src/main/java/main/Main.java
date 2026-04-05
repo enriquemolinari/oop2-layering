@@ -1,8 +1,5 @@
 package main;
 
-import database.JdbcVentasDatabaseService;
-import model.DefaultEstacionDeServicio;
-import ui.MainView;
 
 public class Main {
 
@@ -22,11 +19,7 @@ public class Main {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    JdbcVentasDatabaseService registroVentas =
-                            new JdbcVentasDatabaseService(CONNSTR, USERNAME, PWD);
-                    DefaultEstacionDeServicio estacion =
-                            new DefaultEstacionDeServicio(registroVentas);
-                    new MainView(estacion).launch();
+                    new MainView().launch();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

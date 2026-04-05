@@ -1,6 +1,4 @@
-package ui;
-
-import model.EstacionDeServicio;
+package main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,18 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainView {
-    private EstacionDeServicio estacion;
     private NuevaVentaView ventaView;
     private ListaVentasView listaVentasView;
 
-    public MainView(EstacionDeServicio estacion) {
-        this.estacion = estacion;
-        this.ventaView = new NuevaVentaView(estacion);
-        this.listaVentasView = new ListaVentasView(estacion);
+    public MainView() {
+        this.ventaView = new NuevaVentaView();
+        this.listaVentasView = new ListaVentasView();
     }
 
     public void launch() {
-        JFrame mainFrame = new JFrame("Estación de Servicio");
+        JFrame mainFrame = new JFrame("Estacion de Servicio");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(300, 100);
 
@@ -49,3 +45,4 @@ public class MainView {
         mainFrame.setVisible(true);
     }
 }
+
