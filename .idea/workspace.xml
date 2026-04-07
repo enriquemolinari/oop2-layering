@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d0889dd-53ca-440b-9245-cf014e89bb1f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +109,10 @@
       <updated>1775220028010</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mejora del readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejora del readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
