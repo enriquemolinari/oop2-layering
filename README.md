@@ -15,4 +15,4 @@ Veamos las dependencias entre packages
 usando [jdeps](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jdeps.html). Parado en la raiz del proyecto
 podemos escribir:
 
-`jdeps -verbose:package -p database -p model -p ui .` 
+`jdeps -verbose:package -p persistencia -p modelo -p vista .` 
