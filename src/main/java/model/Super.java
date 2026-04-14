@@ -28,7 +28,7 @@ class Super implements Nafta {
     private boolean esDomingo() {
         LocalDate fechaActual = LocalDate.now();
         DayOfWeek diaDeLaSemana = fechaActual.getDayOfWeek();
-        return diaDeLaSemana == DayOfWeek.THURSDAY;
+        return diaDeLaSemana == DayOfWeek.SUNDAY;
     }
 
 }
